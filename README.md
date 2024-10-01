@@ -19,12 +19,19 @@ Menu
 Após o login, o usuário será direcionado ao menu principal com as seguintes opções:
 
 1.Consultar saldo
+
 2.Consultar extrato
+
 3.Depositar em reais
+
 4.Sacar em reais
+
 5.Comprar criptomoeda
+
 6.Vender criptomoeda
+
 7.Atualizar cotação
+
 0.Sair
 
 Taxas de Transação: As taxas para compra e venda de criptomoedas são variáveis e dependem do tipo de moeda:
