@@ -36,7 +36,7 @@ Após o login, o usuário será direcionado ao menu principal com as seguintes o
 
 Taxas de Transação: As taxas para compra e venda de criptomoedas são variáveis e dependem do tipo de moeda:
 
-Bitcoin: 2% na compra, 3% na venda ($ 50.000,00)
+Bitcoin: 2% na compra, 3% na venda ($ 30.000,00)
 
 Ethereum: 1% na compra, 2% na venda ($ 3.000,00)
 
