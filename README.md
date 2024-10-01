@@ -56,6 +56,7 @@ Permite que o usuário consulte seus saldos em reais e nas criptomoedas Bitcoin,
 3.Consulta de Extrato:
 
 Exibe o histórico de transações (compras e vendas de criptomoedas) realizadas pelo usuário, com detalhes como valor, data e taxa aplicada.
+OBS: Extrato aparece quando você compra ou vende cripto. 
 
 4.Depósito e Saque de Reais:
 
