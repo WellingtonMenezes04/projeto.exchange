@@ -1,14 +1,17 @@
-# 🚀 Sistema de Exchange de Criptomoedas
+# 🚀 Sistema de Exchange de Criptomoedas 🪙
 
 DESCRIÇÃO DO PROJETO
 Este projeto é um sistema de Exchange de Criptomoedas desenvolvido em C, permitindo que investidores e administradores gerenciem contas, criptomoedas e transações de forma segura e eficiente. O sistema suporta funcionalidades como cadastro, login, consulta de saldo, extrato de transações, compra, venda e até adicionar uma criptomoedas (Bitcoin, Ethereum, Ripple e outras), além de atualização de cotações.
 
 
-AUTORES 🧑🏻‍💻
+🧑🏻‍💻 AUTORES 
 
 Wellington de Menezes Paim (RA: 24.124.083-7)
+
 Luan Garcia Candido (RA: 24.124.019-1)
+
 Yuri Lucas Oishi (RA: 24.124.082-9)
+
 Ferramentas utilizadas: Git e GitHub para versionamento e colaboração.
 
 
@@ -68,7 +71,7 @@ Atualizar cotações das criptomoedas: Aplica uma variação aleatória de -5% a
 
 DETALHES TÉCNICOS:
 
-Taxas de Transação:
+🪙 Taxas de Transação:
 
 Bitcoin: 2% (compra), 3% (venda).
 
@@ -79,27 +82,37 @@ Ripple: 1% (compra/venda).
 Outras criptomoedas podem ser cadastradas pelo administrador com taxas específicas.
 
 
-Persistência de Dados:
+PERSISTÊNCIA DE DADOS:
+
 Arquivo binário para investidores (investidores.bin).
+
 Arquivo binário para criptomoedas (criptomoedas.bin).
+
 Arquivo binário para o extrato de transações (extrato.bin).
 
 
-Como rodar os códigos juntos:
+COMO RODAR OS CODIGOS JUNTOS:
 
 Configuração Inicial no Replit
+
 Crie um novo projeto no Replit:
 
 Escolha "C" como linguagem.
+
 Organize os arquivos no ambiente:
 
 Adicione os arquivos investidor.c e admin.c.
+
 Crie um arquivo chamado Makefile na raiz do projeto.
 
-Conteúdo do Makefile:
+
+CONTEÚDO DO MAKEFILE:
+
 Copie o seguinte código para o arquivo Makefile:
 
 Copiar código
+
+
 #Nome dos arquivos fonte
 SRC_INVESTIDOR = investidor.c
 SRC_ADMIN = admin.c
@@ -128,17 +141,17 @@ clean:
 	rm -f $(EXEC_INVESTIDOR) $(EXEC_ADMIN)
 
 
-2. Compilando os Arquivos
+2. COMPILANDO OS ARQUIVOS
+
 Abra o terminal no Replit (botão Shell na parte inferior).
+
 Digite o seguinte comando para compilar os programas:
-bash
-Copiar código
 make
 Esse comando executará as instruções do Makefile, gerando dois executáveis:
 investidor.exe para o programa de investidores.
 admin.exe para o programa de administradores.
 
-3. Executando os Programas
+4. Executando os Programas
 Depois de compilar, você pode executar os programas separadamente:
 Para executar o programa de investidores:
 ./investidor.exe
