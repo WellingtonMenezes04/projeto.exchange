@@ -1,4 +1,4 @@
-#Sistema de Exchange de Criptomoedas
+# Sistema de Exchange de Criptomoedas
 
 Descrição do Projeto
 Este projeto é um sistema de Exchange de Criptomoedas desenvolvido em C, permitindo que investidores e administradores gerenciem contas, criptomoedas e transações de forma segura e eficiente. O sistema suporta funcionalidades como cadastro, login, consulta de saldo, extrato de transações, compra, venda e até adicionar uma criptomoedas (Bitcoin, Ethereum, Ripple e outras), além de atualização de cotações.
