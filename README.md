@@ -1,46 +1,58 @@
-# Sistema de Exchange de Criptomoedas
+# 🚀 Sistema de Exchange de Criptomoedas
 
-Descrição do Projeto
+DESCRIÇÃO DO PROJETO
 Este projeto é um sistema de Exchange de Criptomoedas desenvolvido em C, permitindo que investidores e administradores gerenciem contas, criptomoedas e transações de forma segura e eficiente. O sistema suporta funcionalidades como cadastro, login, consulta de saldo, extrato de transações, compra, venda e até adicionar uma criptomoedas (Bitcoin, Ethereum, Ripple e outras), além de atualização de cotações.
 
-Autores
-Projeto realizado por:
+
+AUTORES 🧑🏻‍💻
 
 Wellington de Menezes Paim (RA: 24.124.083-7)
 Luan Garcia Candido (RA: 24.124.019-1)
 Yuri Lucas Oishi (RA: 24.124.082-9)
 Ferramentas utilizadas: Git e GitHub para versionamento e colaboração.
 
-Funcionalidades Principais
+
+FUNCIONALIDADES PRINCIPAIS:
+
 1. Cadastro e Login:
+   
 Login realizado por CPF e senha.
+
 Permite que novos usuários (investidores) se cadastrem.
+
 Administradores podem cadastrar e gerenciar usuários e criptomoedas. 
+
 OBS: O primeiro login do administrador é fixo que você coloca, para aparecer o menu, após isso cadastrar um novo investidor.
 
 
-2. Menu Administrativo:
+3. MENU DO ADMINISTRADOR:
+
 O administrador pode:
 
-Cadastrar investidores: Permite adicionar novos investidores ao sistema, com informações como nome, CPF, senha e saldos iniciais zerados.
+Cadastrar investidores: 
+Permite adicionar novos investidores ao sistema, com informações como nome, CPF, senha e saldos iniciais zerados.
 
-Excluir investidores: Remove um investidor do sistema, com confirmação antes da exclusão.
+Excluir investidores: 
+Remove um investidor do sistema, com confirmação antes da exclusão.
 
-Cadastrar novas criptomoedas: Adiciona uma nova criptomoeda à Exchange, com definição de cotação inicial e taxas de compra e venda.
+Cadastrar novas criptomoedas: 
+Adiciona uma nova criptomoeda à Exchange, com definição de cotação inicial e taxas de compra e venda.
 
-Excluir criptomoedas: Remove uma criptomoeda da Exchange, com confirmação.
+Excluir criptomoedas: 
+Remove uma criptomoeda da Exchange, com confirmação.
 
-Consultar saldo dos investidores: Exibe o saldo em reais e em cada criptomoeda para um investidor específico, identificado pelo CPF.
+Consultar saldo dos investidores: 
+Exibe o saldo em reais e em cada criptomoeda para um investidor específico, identificado pelo CPF.
 
-Consultar extrato dos investidores: Mostra o histórico de transações (compras e vendas) realizadas por um investidor.
+Consultar extrato dos investidores: 
+Mostra o histórico de transações (compras e vendas) realizadas por um investidor.
 
 Atualização de Cotações:
 As cotações variam aleatoriamente entre -5% e +5% a cada atualização realizada pelo administrador.
 
 
+3. MENU DO INVESTIDOR:
 
-
-3. Menu do Investidor:
 Após login, o investidor pode:
 
 Consultar saldo em reais e criptomoedas: Permite que o usuário consulte seus saldos em reais e nas criptomoedas Bitcoin, Ethereum e Ripple, além de exibir a cotação atual de cada uma.
@@ -54,12 +66,16 @@ Comprar ou vender criptomoedas: O usuário pode realizar comprar e vendas de cri
 Atualizar cotações das criptomoedas: Aplica uma variação aleatória de -5% a 5% nas cotações das criptomoedas cadastradas.
 
 
-Detalhes Técnicos
+DETALHES TÉCNICOS:
 
 Taxas de Transação:
+
 Bitcoin: 2% (compra), 3% (venda).
+
 Ethereum: 1% (compra), 2% (venda).
+
 Ripple: 1% (compra/venda).
+
 Outras criptomoedas podem ser cadastradas pelo administrador com taxas específicas.
 
 
@@ -84,32 +100,33 @@ Conteúdo do Makefile:
 Copie o seguinte código para o arquivo Makefile:
 
 Copiar código
-# Nome dos arquivos fonte
+#Nome dos arquivos fonte
 SRC_INVESTIDOR = investidor.c
 SRC_ADMIN = admin.c
 
-# Nome dos executáveis
+#Nome dos executáveis
 EXEC_INVESTIDOR = investidor.exe
 EXEC_ADMIN = admin.exe
 
-# Compilador e flags
+#Compilador e flags
 CC = gcc
 CFLAGS = -Wall
 
-# Alvo principal: compilar ambos os arquivos separadamente
+#Alvo principal: compilar ambos os arquivos separadamente
 all: $(EXEC_INVESTIDOR) $(EXEC_ADMIN)
 
-# Compilar investidor.c em um executável chamado "investidor"
+#Compilar investidor.c em um executável chamado "investidor"
 $(EXEC_INVESTIDOR): $(SRC_INVESTIDOR)
 	$(CC) $(CFLAGS) -o $(EXEC_INVESTIDOR) $(SRC_INVESTIDOR)
 
-# Compilar admin.c em um executável chamado "admin"
+#Compilar admin.c em um executável chamado "admin"
 $(EXEC_ADMIN): $(SRC_ADMIN)
 	$(CC) $(CFLAGS) -o $(EXEC_ADMIN) $(SRC_ADMIN)
 
-# Limpar os executáveis
+#Limpar os executáveis
 clean:
 	rm -f $(EXEC_INVESTIDOR) $(EXEC_ADMIN)
+
 
 2. Compilando os Arquivos
 Abra o terminal no Replit (botão Shell na parte inferior).
