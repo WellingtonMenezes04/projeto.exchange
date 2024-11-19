@@ -56,3 +56,26 @@ int efetuar_login_admin(const char *cpf, const char *senha) {
   }
   return 0;
 }
+void consultar_saldo_investidor() {
+  char cpf[12];
+  printf("Digite o CPF do investidor para consultar o saldo: ");
+  scanf("%s", cpf);
+
+  for (int i = 0; i < num_investidores; i++) {
+    if (strcmp(investidores[i].cpf, cpf) == 0) {
+      printf("Saldo do investidor %s:\n", investidores[i].nome);
+      printf("Reais: %.2f\n", investidores[i].saldo_reais);
+      printf("Bitcoin: %.2f\n", investidores[i].saldo_bitcoin);
+      printf("Ethereum: %.2f\n", investidores[i].saldo_ethereum);
+      printf("Ripple: %.2f\n", investidores[i].saldo_ripple);
+
+      // Exibir saldo das criptomoedas adicionais
+      for (int j = 0; j < num_criptomoedas; j++) {
+        printf("%s: %.2f (cotacao atual: %.2f)\n", criptomoedas[j].nome,
+               investidores[i].saldos_criptomoedas[j], criptomoedas[j].cotacao);
+      }
+      return;
+    }
+  }
+  printf("Investidor nao encontrado.\n");
+}
