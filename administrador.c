@@ -56,26 +56,75 @@ int efetuar_login_admin(const char *cpf, const char *senha) {
   }
   return 0;
 }
-void consultar_saldo_investidor() {
+
+void cadastrar_investidor() {
+  Investidor novo_investidor;
+  printf("Digite o nome do novo investidor: ");
+  scanf("%s", novo_investidor.nome);
+  printf("Digite o CPF do investidor: ");
+  scanf("%s", novo_investidor.cpf);
+  printf("Digite a senha do investidor: ");
+  scanf("%s", novo_investidor.senha);
+  novo_investidor.saldo_reais = 0.0;
+  novo_investidor.saldo_bitcoin = 0.0;
+  novo_investidor.saldo_ethereum = 0.0;
+  novo_investidor.saldo_ripple = 0.0;
+
+  investidores[num_investidores] = novo_investidor;
+  num_investidores++;
+
+  printf("Investidor cadastrado com sucesso\n");
+}
+
+void excluir_investidor() {
   char cpf[12];
-  printf("Digite o CPF do investidor para consultar o saldo: ");
+  printf("Digite o CPF do investidor a ser excluido: ");
   scanf("%s", cpf);
 
   for (int i = 0; i < num_investidores; i++) {
     if (strcmp(investidores[i].cpf, cpf) == 0) {
-      printf("Saldo do investidor %s:\n", investidores[i].nome);
-      printf("Reais: %.2f\n", investidores[i].saldo_reais);
-      printf("Bitcoin: %.2f\n", investidores[i].saldo_bitcoin);
-      printf("Ethereum: %.2f\n", investidores[i].saldo_ethereum);
-      printf("Ripple: %.2f\n", investidores[i].saldo_ripple);
-
-      // Exibir saldo das criptomoedas adicionais
-      for (int j = 0; j < num_criptomoedas; j++) {
-        printf("%s: %.2f (cotacao atual: %.2f)\n", criptomoedas[j].nome,
-               investidores[i].saldos_criptomoedas[j], criptomoedas[j].cotacao);
+      printf("Dados do investidor encontrado:\n");
+      printf("Nome: %s | CPF: %s\n", investidores[i].nome, investidores[i].cpf);
+      printf("Confirma a exclusao? (s/n): ");
+      char resposta;
+      scanf(" %c", &resposta);
+      if (resposta == 's' || resposta == 'S') {
+        // Move os investidores para "remover" o excluído
+        for (int j = i; j < num_investidores - 1; j++) {
+          investidores[j] = investidores[j + 1];
+        }
+        num_investidores--;
+        printf("Investidor excluido com sucesso.\n");
       }
       return;
     }
   }
   printf("Investidor nao encontrado.\n");
+}
+
+void cadastrar_criptomoeda() {
+  if (num_criptomoedas >= MAX_CRIPTOMOEDAS) {
+    printf("Numero maximo de criptomoedas atingido.\n");
+    return;
+  }
+
+  Criptomoeda nova_cripto;
+  printf("Digite o nome da criptomoeda: ");
+  scanf("%s", nova_cripto.nome);
+  printf("Digite a cotacao inicial da criptomoeda: ");
+  scanf("%lf", &nova_cripto.cotacao);
+  printf("Digite a taxa de compra da criptomoeda: ");
+  scanf("%lf", &nova_cripto.taxa_compra);
+  printf("Digite a taxa de venda da criptomoeda: ");
+  scanf("%lf", &nova_cripto.taxa_venda);
+
+  criptomoedas[num_criptomoedas] = nova_cripto;
+  num_criptomoedas++;
+
+  // Inicializar o saldo para cada investidor
+  for (int i = 0; i < num_investidores; i++) {
+    investidores[i].saldos_criptomoedas[num_criptomoedas - 1] = 0.0;
+  }
+
+  printf("Criptomoeda cadastrada com sucesso!\n");
 }
