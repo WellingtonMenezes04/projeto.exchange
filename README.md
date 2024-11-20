@@ -185,6 +185,11 @@ Com isso, o ambiente no Replit estará configurado para desenvolvimento e testes
 
 
 
+!!!! LINK REPLIT !!!!
+https://replit.com/join/xccpqpugho-luanccandi
+
+
+
 🖁 CONTATO
 
 Para dúvidas ou sugestões, entre em contato pelo e-mail: luanccandi@gmail.com / yurilucasoishi@gmail.com / tonmenezes21@gmail.com 
