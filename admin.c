@@ -126,5 +126,148 @@ void cadastrar_criptomoeda() {
     investidores[i].saldos_criptomoedas[num_criptomoedas - 1] = 0.0;
   }
 
-  printf("criptomoeda cadastrada com sucesso!\n");
+  printf("Criptomoeda cadastrada com sucesso!\n");
+}
+
+void excluir_criptomoeda() {
+  char nome[20];
+  printf("Digite o nome da criptomoeda a ser excluida: ");
+  scanf("%s", nome);
+
+  for (int i = 0; i < num_criptomoedas; i++) {
+    if (strcmp(criptomoedas[i].nome, nome) == 0) {
+      printf("Dados da criptomoeda encontrada:\n");
+      printf("Nome: %s | Cotacao: %.2f | Taxa de compra: %.2f%% | Taxa de "
+             "venda: %.2f%%\n",
+             criptomoedas[i].nome, criptomoedas[i].cotacao,
+             criptomoedas[i].taxa_compra, criptomoedas[i].taxa_venda);
+      printf("Confirma a exclusao? (s/n): ");
+      char resposta;
+      scanf(" %c", &resposta);
+      if (resposta == 's' || resposta == 'S') {
+        // Move as criptomoedas para "remover" a excluída
+        for (int j = i; j < num_criptomoedas - 1; j++) {
+          criptomoedas[j] = criptomoedas[j + 1];
+        }
+        num_criptomoedas--;
+        printf("Criptomoeda excluida com sucesso.\n");
+      }
+      return;
+    }
+  }
+  printf("Criptomoeda nao encontrada.\n");
+}
+
+void consultar_saldo_investidor() {
+  char cpf[12];
+  printf("Digite o CPF do investidor para consultar o saldo: ");
+  scanf("%s", cpf);
+
+  for (int i = 0; i < num_investidores; i++) {
+    if (strcmp(investidores[i].cpf, cpf) == 0) {
+      printf("Saldo do investidor %s:\n", investidores[i].nome);
+      printf("Reais: %.2f\n", investidores[i].saldo_reais);
+      printf("Bitcoin: %.2f\n", investidores[i].saldo_bitcoin);
+      printf("Ethereum: %.2f\n", investidores[i].saldo_ethereum);
+      printf("Ripple: %.2f\n", investidores[i].saldo_ripple);
+
+      // Exibir saldo das criptomoedas adicionais
+      for (int j = 0; j < num_criptomoedas; j++) {
+        printf("%s: %.2f (cotacao atual: %.2f)\n", criptomoedas[j].nome,
+               investidores[i].saldos_criptomoedas[j], criptomoedas[j].cotacao);
+      }
+      return;
+    }
+  }
+  printf("Investidor nao encontrado.\n");
+}
+
+void consultar_extrato_investidor() {
+  char cpf[12];
+  printf("Digite o CPF do investidor para consultar o extrato: ");
+  scanf("%s", cpf);
+
+  for (int i = 0; i < num_investidores; i++) {
+    if (strcmp(investidores[i].cpf, cpf) == 0) {
+      printf("Extrato do investidor %s:\n", investidores[i].nome);
+      for (int j = 0; j < num_transacoes; j++) {
+        if (strcmp(extrato[j].cripto, cpf) == 0) {
+          printf(
+              "Data: %s | Tipo: %s | Cripto: %s | Valor: %.2f | Taxa: %.2f%%\n",
+              extrato[j].data, extrato[j].tipo, extrato[j].cripto,
+              extrato[j].valor, extrato[j].taxa);
+        }
+      }
+      return;
+    }
+  }
+  printf("Investidor nao encontrado.\n");
+}
+
+void atualizar_cotacao_criptomoedas() {
+  for (int i = 0; i < num_criptomoedas; i++) {
+    srand(time(NULL));
+    double variacao = (rand() % 11 - 5) / 100.0; // variação de -5% a 5%
+    criptomoedas[i].cotacao *= (1 + variacao);
+    printf("Criptomoeda %s: nova cotacaoo %.2f (variacao %.2f%%)\n",
+           criptomoedas[i].nome, criptomoedas[i].cotacao, variacao * 100);
+  }
+}
+
+int main() {
+  printf("--------------------------------------------------\n");
+  printf("Bem-vindo ao sistema de administração de Exchange!\n");
+  printf("--------------------------------------------------\n");
+
+  printf("Digite o CPF do administrador: ");
+  scanf("%s", admin.cpf);
+  printf("Digite a senha do administrador: ");
+  scanf("%s", admin.senha);
+
+  int opcao;
+  do {
+    printf("\nMenu Administrativo:\n");
+    printf("1. Cadastrar novo investidor\n");
+    printf("2. Excluir investidor\n");
+    printf("3. Cadastrar criptomoeda\n");
+    printf("4. Excluir criptomoeda\n");
+    printf("5. Consultar saldo de um investidor\n");
+    printf("6. Consultar extrato de um investidor\n");
+    printf("7. Atualizar cotacao das criptomoedas\n");
+    printf("0. Sair\n");
+    printf("Digite sua opcao: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+    case 1:
+      cadastrar_investidor();
+      break;
+    case 2:
+      excluir_investidor();
+      break;
+    case 3:
+      cadastrar_criptomoeda();
+      break;
+    case 4:
+      excluir_criptomoeda();
+      break;
+    case 5:
+      consultar_saldo_investidor();
+      break;
+    case 6:
+      consultar_extrato_investidor();
+      break;
+    case 7:
+      atualizar_cotacao_criptomoedas();
+      break;
+    case 0:
+      printf("Saindo...\n");
+      break;
+    default:
+      printf("Opcao invalida.\n");
+      break;
+    }
+  } while (opcao != 0);
+
+  return 0;
 }
