@@ -134,6 +134,8 @@ clean:
 	rm -f $(EXEC_INVESTIDOR) $(EXEC_ADMIN)
 
 
+aqui acaba o código para copiar 
+
 
 
 2. COMPILANDO OS ARQUIVOS
