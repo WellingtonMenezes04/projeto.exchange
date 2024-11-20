@@ -126,5 +126,5 @@ void cadastrar_criptomoeda() {
     investidores[i].saldos_criptomoedas[num_criptomoedas - 1] = 0.0;
   }
 
-  printf("Criptomoeda cadastrada com sucesso!\n");
+  printf("criptomoeda cadastrada com sucesso!\n");
 }
