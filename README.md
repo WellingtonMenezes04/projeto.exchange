@@ -7,8 +7,11 @@ Este projeto é um sistema de Exchange de Criptomoedas desenvolvido em C, permit
 🧑🏻‍💻 AUTORES 
 
 Wellington de Menezes Paim (RA: 24.124.083-7)
+
 Luan Garcia Candido (RA: 24.124.019-1)
+
 Yuri Lucas Oishi (RA: 24.124.082-9)
+
 Ferramentas utilizadas: Git e GitHub para versionamento e colaboração.
 
 
