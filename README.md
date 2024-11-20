@@ -2,15 +2,15 @@
 Este projeto é um sistema de Exchange de Criptomoedas desenvolvido em C, permitindo que investidores e administradores gerenciem contas, criptomoedas e transações de forma segura e eficiente. O sistema suporta funcionalidades como cadastro, login, consulta de saldo, extrato de transações, compra, venda e até adicionar uma criptomoedas (Bitcoin, Ethereum, Ripple e outras), além de atualização de cotações.
 
 
+
+
 🧑🏻‍💻 AUTORES 
 
 Wellington de Menezes Paim (RA: 24.124.083-7)
-
 Luan Garcia Candido (RA: 24.124.019-1)
-
 Yuri Lucas Oishi (RA: 24.124.082-9)
-
 Ferramentas utilizadas: Git e GitHub para versionamento e colaboração.
+
 
 
 FUNCIONALIDADES PRINCIPAIS:
